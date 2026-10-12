@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet RoboBuddy! | What is an AI Assistant?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Background Elements -->
+  <div class="bg-decorations" aria-hidden="true">
+    <span class="floating-star" style="top: 8%; left: 5%;">⭐</span>
+    <span class="floating-star" style="top: 15%; right: 8%;">✨</span>
+    <span class="floating-star" style="top: 45%; left: 3%;">🎈</span>
+    <span class="floating-star" style="top: 65%; right: 4%;">🌈</span>
+    <span class="floating-star" style="top: 85%; left: 8%;">🚀</span>
+    <span class="floating-star" style="top: 92%; right: 10%;">🍭</span>
+  </div>
+
+  <!-- Header / Navigation Bar -->
+  <nav class="nav-bar">
+    <div class="logo">
+      <span class="logo-icon">🤖</span>
+      <span class="logo-text">RoboBuddy</span>
+    </div>
+    <div class="nav-links">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#interactive-chat">Talk to Buddy</a>
+      <a href="#story-maker">Story Maker</a>
+      <a href="#fun-quiz">Fun Quiz</a>
+    </div>
+    <div class="nav-actions">
+      <button id="soundToggle" class="pill-btn sound-btn" title="Toggle cute sound effects">
+        🔊 Sound: ON
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="hero-content">
+      <div class="badge-pill">👋 Hello Little Explorer!</div>
+      <h1 class="hero-title">
+        What is an <span class="highlight-text">AI Assistant?</span>
+      </h1>
+      <p class="hero-subtitle">
+        Imagine a super-friendly <strong>magical robot pal</strong> that lives in your tablet or computer. 
+        It loves listening to your questions, drawing pictures, and telling magical bedtime stories!
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#interactive-chat" class="btn btn-primary" onclick="playChime()">
+          <span>💬</span> Chat With RoboBuddy
+        </a>
+        <a href="#story-maker" class="btn btn-secondary" onclick="playPop()">
+          <span>📖</span> Make a Magic Story
+        </a>
+      </div>
+    </div>
+
+    <!-- Animated Robot Mascot -->
+    <div class="robot-stage">
+      <div class="robot" id="robotAvatar" onclick="pokeRobot()">
+        <div class="antenna">
+          <div class="antenna-ball"></div>
+          <div class="antenna-stick"></div>
+        </div>
+        <div class="robot-head">
+          <div class="robot-ear ear-left"></div>
+          <div class="robot-ear ear-right"></div>
+          <div class="robot-face">
+            <div class="robot-eyes">
+              <div class="eye"><div class="pupil"></div></div>
+              <div class="eye"><div class="pupil"></div></div>
+            </div>
+            <div class="robot-cheeks">
+              <span class="blush"></span>
+              <span class="blush"></span>
+            </div>
+            <div class="robot-mouth smile" id="robotMouth"></div>
+          </div>
+        </div>
+        <div class="robot-body">
+          <div class="robot-chest-screen">
+            <span id="robotChestIcon">💖</span>
+          </div>
+        </div>
+        <div class="robot-shadow"></div>
+      </div>
+      <div class="speech-bubble" id="heroRobotSpeech">
+        Click on me! I love tickles! 🤖✨
+      </div>
+    </div>
+  </header>
+
+  <!-- Section 1: The 3 Magic Steps -->
+  <section class="section" id="how-it-works">
+    <div class="section-header">
+      <span class="section-tag">✨ Super Simple Magic</span>
+      <h2>How Does RoboBuddy Work?</h2>
+      <p>Just 3 easy steps! It’s like magic, but made of clever computer thinking!</p>
+    </div>
+
+    <div class="cards-grid three-steps">
+      <!-- Step 1 -->
+      <div class="card step-card" onclick="triggerStep(1)">
+        <div class="step-num">Step 1</div>
+        <div class="card-icon-bubble bg-pink">🗣️</div>
+        <h3>You Ask Something!</h3>
+        <p>You can talk or type: <em>"Why do giraffes have super long necks?"</em> or <em>"Can you write a song about puppies?"</em></p>
+        <div class="hint-pill">👉 You are the Boss!</div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="card step-card" onclick="triggerStep(2)">
+        <div class="step-num">Step 2</div>
+        <div class="card-icon-bubble bg-yellow">🧠</div>
+        <h3>Robot Brain Zooms!</h3>
+        <p>In less than one second, RoboBuddy searches its giant library of millions of fun storybooks to find the best answer.</p>
+        <div class="hint-pill">⚡ Faster than a rocket!</div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="card step-card" onclick="triggerStep(3)">
+        <div class="step-num">Step 3</div>
+        <div class="card-icon-bubble bg-teal">🎁</div>
+        <h3>Friendly Answer Arrives!</h3>
+        <p>RoboBuddy smiles and hands you the answer: a cute story, a colorful picture, or a fun fact you can share with mom & dad!</p>
+        <div class="hint-pill">🎉 Tadaaa!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Interactive Chat Toy -->
+  <section class="section alt-bg" id="interactive-chat">
+    <div class="section-header">
+      <span class="section-tag">🎮 Try It Yourself!</span>
+      <h2>Talk to RoboBuddy Right Now!</h2>
+      <p>Click any funny question below, or type your own question to see how an AI helper answers!</p>
+    </div>
+
+    <div class="chat-container">
+      <div class="chat-bot-header">
+        <div class="bot-status-indicator">
+          <span class="status-dot"></span>
+          <strong>RoboBuddy</strong> is awake and ready to play!
+        </div>
+        <button class="voice-btn" id="voiceToggleBtn" onclick="toggleVoiceOutput()">
+          <span id="voiceIcon">🔈</span> Voice: Off
+        </button>
+      </div>
+
+      <!-- Chat History -->
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot-message">
+          <div class="msg-avatar">🤖</div>
+          <div class="msg-bubble">
+            <p>Beep boop! Hello friend! 🌟 I am your friendly AI assistant. Ask me anything, or pick one of the fun questions below!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Prompt Suggestion Pills -->
+      <div class="quick-prompts">
+        <span class="quick-label">Tap to ask:</span>
+        <button class="prompt-chip" onclick="askQuickQuestion('tell_joke')">😂 Tell a silly joke</button>
+        <button class="prompt-chip" onclick="askQuickQuestion('giraffe_neck')">🦒 Why do giraffes have long necks?</button>
+        <button class="prompt-chip" onclick="askQuickQuestion('stars')">⭐ Where do stars go in daytime?</button>
+        <button class="prompt-chip" onclick="askQuickQuestion('sing_song')">🎵 Sing me a frog song</button>
+        <button class="prompt-chip" onclick="askQuickQuestion('ai_eat')">🍕 Do you eat ice cream?</button>
+      </div>
+
+      <!-- Input box -->
+      <form class="chat-input-bar" id="chatForm" onsubmit="handleChatSubmit(event)">
+        <input 
+          type="text" 
+          id="userInput" 
+          placeholder="Type something cute (e.g. Can dinosaurs dance?)..." 
+          autocomplete="off"
+        >
+        <button type="submit" class="send-btn" id="sendBtn">
+          <span>Send</span> 🚀
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Section 3: Pick & Mix Magic Story Maker -->
+  <section class="section" id="story-maker">
+    <div class="section-header">
+      <span class="section-tag">📚 AI Superpower</span>
+      <h2>Magic Story Maker!</h2>
+      <p>AI assistants are amazing storytellers. Pick your favorite ingredients and let AI invent an adventure!</p>
+    </div>
+
+    <div class="story-generator-box">
+      <div class="builder-columns">
+        <!-- Pick 1: Hero -->
+        <div class="builder-col">
+          <h3>1. Choose Your Hero 🐾</h3>
+          <div class="choice-group" id="heroChoices">
+            <button class="choice-btn active" data-val="Space Bunny">🐰 Space Bunny</button>
+            <button class="choice-btn" data-val="Dancing Dinosaur">🦖 Dancing Dino</button>
+            <button class="choice-btn" data-val="Superhero Puppy">🐶 Superhero Pup</button>
+            <button class="choice-btn" data-val="Flying Kitten">🐱 Flying Kitty</button>
+          </div>
+        </div>
+
+        <!-- Pick 2: Magical Place -->
+        <div class="builder-col">
+          <h3>2. Choose a World 🌍</h3>
+          <div class="choice-group" id="placeChoices">
+            <button class="choice-btn active" data-val="Marshmallow Cloud Island">☁️ Marshmallow Clouds</button>
+            <button class="choice-btn" data-val="Glittery Underwater Kingdom">🌊 Glitter Ocean</button>
+            <button class="choice-btn" data-val="Rainbow Candy Planet">🍭 Candy Planet</button>
+            <button class="choice-btn" data-val="Glowing Treehouse Forest">🌳 Magic Forest</button>
+          </div>
+        </div>
+
+        <!-- Pick 3: Secret Superpower -->
+        <div class="builder-col">
+          <h3>3. Choose Superpower ⚡</h3>
+          <div class="choice-group" id="powerChoices">
+            <button class="choice-btn active" data-val="Giggle Sparkles">✨ Giggle Sparkles</button>
+            <button class="choice-btn" data-val="Shooting Rainbow Laser">🌈 Rainbow Laser</button>
+            <button class="choice-btn" data-val="Making Giant Bubble Shields">🫧 Giant Bubbles</button>
+            <button class="choice-btn" data-val="Instant Cookie Baking">🍪 Cookie Baker</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="generator-action">
+        <button class="btn btn-magic" id="generateStoryBtn" onclick="generateMagicStory()">
+          ✨ RoboBuddy, Create My Story!
+        </button>
+      </div>
+
+      <!-- Generated Story Display Card -->
+      <div class="story-result-card hidden" id="storyResult">
+        <div class="story-header-bar">
+          <h3 id="storyTitle">The Grand Adventure!</h3>
+          <button class="btn-read-aloud" id="readStoryBtn" onclick="speakCurrentStory()">
+            🔊 Read Story to Me
+          </button>
+        </div>
+        <div class="story-body" id="storyText">
+          Your story is cooking in RoboBuddy's brain...
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: What AI CAN and CANNOT Do -->
+  <section class="section alt-bg">
+    <div class="section-header">
+      <span class="section-tag">💡 Important Truth</span>
+      <h2>What Can AI Do? & What Can It NOT Do?</h2>
+      <p>Even though AI seems magical, it's not a real person! Here's the truth:</p>
+    </div>
+
+    <div class="comparison-grid">
+      <div class="compare-card yes-card">
+        <div class="compare-badge">✅ YES! AI Can...</div>
+        <ul class="compare-list">
+          <li>🎨 Draw colorful pictures of any idea you have.</li>
+          <li>📖 Invent infinite silly stories with your name in it.</li>
+          <li>🌍 Speak to friends in almost any language.</li>
+          <li>🧮 Help you learn ABCs, 123s, and planet facts.</li>
+          <li>⏰ Remind you when it's time for lunch or tooth-brushing!</li>
+        </ul>
+      </div>
+
+      <div class="compare-card no-card">
+        <div class="compare-badge">❌ NO! AI Cannot...</div>
+        <ul class="compare-list">
+          <li>🍦 Eat ice cream or cupcakes (robots have no stomach!).</li>
+          <li>🤗 Give real warm hugs (moms and dads give the best hugs!).</li>
+          <li>💖 Feel feelings like being happy, sad, or sleepy.</li>
+          <li>🏆 Always be 100% right (sometimes it makes silly guesses!).</li>
+          <li>🏃 Play tag or ride a bicycle outside in the park.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: The Fun Quiz Game -->
+  <section class="section" id="fun-quiz">
+    <div class="section-header">
+      <span class="section-tag">🎯 Pop Quiz Game!</span>
+      <h2>Can You Guess Like a Super Genius?</h2>
+      <p>Answer the 4 questions below to earn your <strong>Golden Robot Explorer Badge</strong>!</p>
+    </div>
+
+    <div class="quiz-wrapper">
+      <div class="quiz-card" id="quizCard">
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress" id="quizProgress" style="width: 25%;"></div>
+        </div>
+        <div class="quiz-counter" id="quizCounter">Question 1 of 4</div>
+        <h3 class="quiz-question" id="quizQuestion">Can an AI assistant eat a slice of cheesy pizza? 🍕</h3>
+
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuizAnswer(true)">Yes, yummy!</button>
+          <button class="quiz-opt-btn" onclick="checkQuizAnswer(false)">No way, robots have no tummy!</button>
+        </div>
+
+        <div class="quiz-feedback hidden" id="quizFeedback">
+          <div class="feedback-icon" id="feedbackIcon">🎉</div>
+          <p id="feedbackText">Correct!</p>
+          <button class="btn btn-primary" id="nextQuizBtn" onclick="nextQuizQuestion()">Next Question ➡️</button>
+        </div>
+      </div>
+
+      <div class="quiz-trophy-shelf">
+        <h4>Your Robot Stars:</h4>
+        <div class="stars-display" id="starsDisplay">
+          <span class="star-badge inactive">⭐</span>
+          <span class="star-badge inactive">⭐</span>
+          <span class="star-badge inactive">⭐</span>
+          <span class="star-badge inactive">⭐</span>
+        </div>
+        <p id="trophyMessage">Answer correctly to light up all 4 stars!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <span>🤖</span>
+        <strong>RoboBuddy</strong>
+      </div>
+      <p>An educational adventure website explaining AI assistants in the friendliest, simplest way possible!</p>
+      <div class="footer-bottom">
+        <span>Made with ❤️ for curious little minds</span>
+        <span>Connected to GitHub: <strong>fatimashakee</strong></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
