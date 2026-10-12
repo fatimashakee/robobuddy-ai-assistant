@@ -435,3 +435,37 @@ function restartQuiz() {
   quizScore = 0;
   location.reload();
 }
+
+// --- Background Color Theme Switcher ---
+const themeList = ['cotton-candy', 'sunshine', 'sky', 'lavender', 'mint', 'space'];
+
+function setTheme(themeName) {
+  playPop();
+  
+  // Remove all theme classes
+  themeList.forEach(t => document.body.classList.remove(`theme-${t}`));
+
+  // Add selected theme
+  document.body.classList.add(`theme-${themeName}`);
+
+  // Update active dot in navbar
+  document.querySelectorAll('.color-dot').forEach(dot => {
+    dot.classList.toggle('active', dot.classList.contains(`dot-${themeName}`));
+  });
+
+  // Save to localStorage
+  try {
+    localStorage.setItem('robobuddy_theme', themeName);
+  } catch (e) {}
+}
+
+// Initialize saved theme on load
+(function initTheme() {
+  try {
+    const saved = localStorage.getItem('robobuddy_theme') || 'cotton-candy';
+    setTheme(saved);
+  } catch (e) {
+    setTheme('cotton-candy');
+  }
+})();
+
